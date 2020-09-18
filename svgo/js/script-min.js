@@ -63,7 +63,7 @@
                 {
                     "id": "cleanupIDs",
                     "name": "清除ID",
-
+                    "active": true,
                 },
                 {
                     "id": "removeRasterImages",
