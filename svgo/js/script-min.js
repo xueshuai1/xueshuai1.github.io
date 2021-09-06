@@ -574,10 +574,19 @@
                             nodelist.forEach(item => {
                                 let fill = item.attributes.getNamedItem("fill");
                                 if (fill && fill.value.indexOf("url(#") > -1) {
-                                    var _id = fill.value.split("url(#")[1].split(")")[0];
+                                    let _id = fill.value.split("url(#")[1].split(")")[0];
                                     if (map.has(_id)) {
-                                        var r = "jl-" + randomRange(5, 8);
+                                        let r = "jl-" + randomRange(5, 8);
                                         fill.value = `url(#${r})`;
+                                        map.get(_id).id = r;
+                                    }
+                                }
+                                let stroke = item.attributes.getNamedItem("stroke");
+                                if(stroke && stroke.value.indexOf("url(#") > -1) {
+                                    let _id = stroke.value.split("url(#")[1].split(")")[0];
+                                    if (map.has(_id)) {
+                                        let r = "jl-" + randomRange(5, 8);
+                                        stroke.value = `url(#${r})`;
                                         map.get(_id).id = r;
                                     }
                                 }
